@@ -37,4 +37,26 @@ package object model {
       throw new IllegalArgumentException(s"Unknown item name: $itemName")
     )
   }
+
+  sealed trait Discount {
+    def apply(cart: Cart): Double
+  }
+
+  case object BuyOneGetOneFreeAppleDiscount extends Discount {
+    def apply(cart: Cart): Double = cart.quantities.get(Apple()) match {
+      case Some(apples) =>
+        val originalPrice = apples * Apple.DefaultRegularPrice
+        (apples / 2 + apples % 2) * Apple.DefaultRegularPrice - originalPrice
+      case None => 0
+    }
+  }
+
+  case object ThreeForThePriceOfTwoOrangeDiscount extends Discount {
+    def apply(cart: Cart): Double = cart.quantities.get(Orange()) match {
+      case Some(oranges) =>
+        val originalPrice = oranges * Orange.DefaultRegularPrice
+        (oranges - oranges / 3) * Orange.DefaultRegularPrice - originalPrice
+      case None => 0
+    }
+  }
 }

@@ -10,7 +10,7 @@ object Main {
 
   def main(args: Array[String]): Unit = {
     val cart = Cart(args.map(Item.apply))
-    val checkoutService = new CheckoutService
+    val checkoutService = CheckoutService()
 
     println(checkoutService.checkoutCart(cart))
   }
