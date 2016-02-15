@@ -49,7 +49,7 @@ class CartSpec extends FlatSpec with Matchers {
     val items = Seq(Apple(), Apple(), Orange(), Apple(), Orange())
     val expResult = Map(Apple() -> 3, Orange() -> 2)
 
-    val result = Cart(items).getQuantities
+    val result = Cart(items).quantities
 
     result shouldEqual expResult
   }

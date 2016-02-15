@@ -15,7 +15,7 @@ class ItemSpec extends FlatSpec with Matchers {
     val input3 = "apple"
     val input4 = "AppLe"
 
-    val expResult = new Apple(Apple.DefaultRegularPrice)
+    val expResult = new Apple(Apple.Name, Apple.DefaultRegularPrice)
 
     val result1 = Item(input1)
     val result2 = Item(input2)
@@ -34,7 +34,7 @@ class ItemSpec extends FlatSpec with Matchers {
     val input3 = "orange"
     val input4 = "OraNGe"
 
-    val expResult = new Orange(Orange.DefaultRegularPrice)
+    val expResult = new Orange(Orange.Name, Orange.DefaultRegularPrice)
 
     val result1 = Item(input1)
     val result2 = Item(input2)
